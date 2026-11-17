@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speisen &amp; Getränke – Freiheit Köln</title>
+  <meta name="description" content="Speise- und Getränkekarte der Gaststätte Freiheit in Köln-Deutz.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <nav class="container nav">
+    <a href="index.html" class="logo"><img src="img/schild.png" alt="Freiheit – gutbürgerliche Küche"></a>
+    <button class="menu-btn" aria-label="Menü öffnen">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="karte.html" class="aktiv">Speisen &amp; Getränke</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h2>Unsere Karte</h2>
+
+    <div class="tabs">
+      <button class="tab aktiv" data-ziel="speisen">Speisen</button>
+      <button class="tab" data-ziel="getraenke">Getränke</button>
+    </div>
+
+    <!-- ===== SPEISEN ===== -->
+    <div id="speisen" class="tab-inhalt aktiv">
+      <p class="hinweis zentriert">Unsere Küche ist täglich von 12:00 bis 21:00 Uhr für euch da.</p>
+      <div class="kategorie"><h3>Salate</h3><div class="spalten" id="salate"></div></div>
+      <div class="kategorie">
+        <h3>Schnitzel</h3>
+        <p class="hinweis">mit Pommes Frites/Kroketten und Salat – alle Schnitzel auch als Putenschnitzel erhältlich (+1,00 €)</p>
+        <div class="spalten" id="schnitzel"></div>
+      </div>
+      <div class="kategorie"><h3>Für Feinschmecker</h3><div class="spalten" id="feinschmecker"></div></div>
+      <div class="kategorie"><h3>Kleine Leckereien</h3><div class="spalten" id="leckereien"></div></div>
+    </div>
+
+    <!-- ===== GETRÄNKE ===== -->
+    <div id="getraenke" class="tab-inhalt">
+      <div class="kategorie">
+        <h3 class="mit-logo">Biere <img src="img/muehlen-koelsch-logo.png" alt="Mühlen Kölsch"></h3>
+        <div class="spalten" id="biere"></div>
+      </div>
+      <div class="kategorie"><h3>Wein &amp; Sekt</h3><div class="spalten" id="wein"></div></div>
+      <div class="kategorie"><h3>Alkoholfrei</h3><div class="spalten" id="alkfrei"></div></div>
+      <div class="kategorie"><h3>Warme Getränke</h3><div class="spalten" id="warm"></div></div>
+      <div class="kategorie"><h3>Spirituosen</h3><div class="spalten" id="spirit"></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-titel">Gaststätte Freiheit</p>
+      <p>Justinianstraße 1<br>50679 Köln</p>
+    </div>
+    <div>
+      <p class="footer-titel">Kontakt</p>
+      <p><a href="tel:+491708474361">0170 8474361</a><br>
+         <a href="mailto:freiheit.deutz@gmail.com">freiheit.deutz@gmail.com</a></p>
+    </div>
+    <div>
+      <p class="footer-titel">Folgt uns</p>
+      <!-- TODO: Facebook-Link hier eintragen -->
+      <a href="index.html" class="social" aria-label="Freiheit auf Facebook"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg> Facebook</a>
+    </div>
+  </div>
+  <p class="footer-unten">© <span id="jahr"></span> Gaststätte Freiheit · Köln-Deutz ·
+    <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+// =====================================================
+//  SPEISEN: [Name, Beschreibung, Preis]
+//  Preise oder Gerichte änderst du nur hier.
+// =====================================================
+const speisen = {
+  salate: [
+    ["Mista", "Tomaten, Gurken, Paprika, Mais", "7,50"],
+    ["Capricciosa", "Tomaten, Gurken, Paprika, Mais, Thunfisch, Ei, Oliven, Schinken", "11,50"],
+    ["Sandra", "Gemischter Salat mit Putenbruststreifen", "12,50"],
+    ["Freiheit", "Tomaten, Gurken, Paprika, Mais, Thunfisch, Oliven, Putenbruststreifen, gebratene Champignons, geriebener Käse", "13,50"]
+  ],
+  schnitzel: [
+    ["Wiener Art", "paniertes Schnitzel mit Zitrone", "12,90"],
+    ["Mailänder Art", "mit Parmesankäse paniertes Schnitzel mit Zitrone", "13,90"],
+    ["Hollandaise-/Béarnaiseschnitzel", "paniertes Schnitzel mit Sauce Hollandaise/Béarnaise", "14,90"],
+    ["Zwiebelschnitzel", "paniertes Schnitzel mit Röstzwiebeln", "14,90"],
+    ["Jäger Art", "paniertes Schnitzel mit frischer Champignonsauce", "14,90"],
+    ["Waldarbeiter Art", "paniertes Schnitzel mit frischer Champignon-Paprikasauce", "14,90"],
+    ["Mexiko Art", "paniertes Schnitzel mit scharfer Tomatensauce und Käse überbacken", "14,90"],
+    ["Pfefferschnitzel", "paniertes Schnitzel mit Pfefferrahmsauce", "14,90"],
+    ["Zigeunerschnitzel", "paniertes Schnitzel mit Paprikasauce", "14,90"],
+    ["Elsässer Art", "paniertes Schnitzel mit Crème fraîche-Sauce", "14,90"],
+    ["Kurfürsten Art", "paniertes Schnitzel mit Schinken und Spiegelei", "14,90"],
+    ["Hawaii", "paniertes Schnitzel mit Schinken und Ananas, mit Käse überbacken", "14,90"],
+    ["Carprese", "paniertes Schnitzel mit Tomaten und Mozzarella überbacken", "14,90"],
+    ["Texas", "paniertes Schnitzel mit Zwiebeln, Speck, BBQ-Sauce und Käse überbacken", "14,90"],
+    ["Cordon bleu art", "paniertes Schnitzel mit Schinken und Käse, mit Specksauce", "15,90"],
+    ["Tiroler Art", "paniertes Schnitzel mit Tomaten und Zwiebeln, mit Sauce Hollandaise und Käse überbacken", "15,90"],
+    ["Freiheit", "Schnitzel vom Schweinelachs natur mit Champignons, Sauce Béarnaise und Käse überbacken", "15,90"]
+  ],
+  feinschmecker: [
+    ["Schweinefilet Gärtnerin", "Schweinefilet Medaillon mit Kroketten, Erbsen und Möhren, Sauce wahlweise Kräuterbutter, Sauce Béarnaise, Sauce Hollandaise", "15,90"],
+    ["Rumpsteak", "mit Kräuterbutter/Zwiebeln/Champignons, Pommes Frites und Salat", "19,90"],
+    ["Grillteller", "Kleines Schweine-, Rinderhüft-, Putensteak und Mettwurst mit Pommes Frites, Kräuterbutter und Salat", "19,90"],
+    ["Boeuf Stroganoff", "Rinderhüftstreifen à la Stroganoff mit Bandnudeln", "15,90"],
+    ["Putengeschnetzeltes", "Putenstreifen in Sahnesauce, mit Erbsen und Kroketten", "14,90"]
+  ],
+  leckereien: [
+    ["Currywurst", "mit Pommes Frites", "7,90"],
+    ["Bratwurst", "mit Pommes Frites", "7,40"],
+    ["Bockwurst", "mit Pommes Frites", "6,90"],
+    ["8 Chicken Nuggets", "mit Pommes Frites und Süß-Sauer-Sauce", "9,40"],
+    ["6 Chicken Wings", "mit Pommes Frites und Süß-Sauer-Sauce", "9,40"],
+    ["Pommes Frites", "", "4,50"],
+    ["Leberkäse", "mit Spiegelei und Pommes Frites", "10,90"],
+    ["Herrentoast", "kleines Schweinesteak auf Toast mit Zwiebeln und Spiegelei im Salatbett", "10,90"],
+    ["Damentoast", "kleines Schweinesteak auf Toast mit Champignons und Sauce Béarnaise im Salatbett", "10,90"],
+    ["Toast Hawaii", "", "8,90"],
+    ["Strammer Toast Max", "", "7,90"],
+    ["Rührei", "wahlweise mit Käse / Schinken / Champignons, sowie Pommes Frites und Salat", "8,40"],
+    ["Gulaschsuppe", "mit Toast", "5,50"],
+    ["Mayo / Gewürzketchup", "", "0,50"]
+  ]
+};
+
+// =====================================================
+//  GETRÄNKE: [Name, Menge, Preis]
+// =====================================================
+const getraenke = {
+  biere: [["Mühlen Kölsch","0,2 l","2,10"],["Mühlen frei","0,33 l","3,00"],["Pitter","10 l","90,00"],
+    ["Bitburger Pils","0,33 l","3,00"],["Bitburger alkoholfrei","0,33 l","3,00"],["Hofbräu Weizen","0,5 l","4,50"],
+    ["Hofbräu alkoholfrei","0,5 l","4,50"],["Vita Malz","0,2 l","2,10"]],
+  wein: [["Airén","0,2 l","3,50"],["Hambacher Schloss","0,2 l","5,00"],["Weinschorle","0,2 l","3,50"],
+    ["Rotwein","0,2 l","5,00"],["Piccolo","0,2 l","6,00"],["Sekt (Flasche)","0,75 l","20,00"],["Aperol Spritz","","6,50"]],
+  alkfrei: [["Apfelschorle","0,2 l","2,10"],["Coca-Cola/Zero","0,2 l","2,10"],["Fanta/Sprite","0,2 l","2,10"],
+    ["Apfelsaft","0,2 l","2,10"],["Orangensaft","0,2 l","2,10"],["Gaffel Fassbrause","0,33 l","3,00"],
+    ["Sprudelwasser","0,2 l","2,00"],["Stilles Wasser","0,2 l","2,00"]],
+  warm: [["Tasse Kaffee","","2,50"],["Espresso","","2,10"],["Tasse Tee","","2,50"]],
+  spirit: [["Amaretto","4 cl","4,00"],["Asbach Uralt","4 cl","4,00"],["Apfelkorn","2 cl","2,10"],
+    ["Aquavit Linie","2 cl","3,00"],["Averna","2 cl","2,10"],["Bacardi Rum","4 cl","4,00"],["Baileys","4 cl","4,00"],
+    ["Batida de Coco","4 cl","4,00"],["Berliner Luft","2 cl","2,10"],["Calvados","2 cl","2,50"],
+    ["Captain Morgan","4 cl","4,00"],["Eierlikör","2 cl","2,10"],["Fernet Branca","2 cl","2,10"],
+    ["Ficken","2 cl","2,10"],["Fürst Bismarck","2 cl","2,10"],["Genever","2 cl","2,10"],["Gin","2 cl","3,50"],
+    ["Grappa","2 cl","2,50"],["Grüner","2 cl","2,10"],["Havana","4 cl","4,00"],["Jägermeister","2 cl","2,10"],
+    ["Julischka","2 cl","2,10"],["Kabänes","2 cl","2,10"],["Feigling","2 cl","2,10"],["Korn","2 cl","2,10"],
+    ["Kümmerling","2 cl","2,10"],["Lakritz","2 cl","2,10"],["Limoncello","2 cl","2,50"],["Malibu","4 cl","4,00"],
+    ["Mariacron","2 cl","2,10"],["Martini","4 cl","5,00"],["Metaxa","2 cl","2,50"],["Mexikaner","2 cl","2,10"],
+    ["Obstler","2 cl","2,10"],["Ouzo 12","2 cl","2,10"],["Puschkin","2 cl","2,10"],["Ramazotti","2 cl","2,50"],
+    ["Sambuca","2 cl","2,10"],["Schwesterherz","2 cl","2,10"],["Tequila","2 cl","2,10"],["Tunel","2 cl","2,10"],
+    ["Underberg","2 cl","2,10"],["Ballentines","4 cl","4,50"],["Chivas","4 cl","6,50"],["Jim Beam","4 cl","4,50"],
+    ["Jack Daniels","4 cl","5,50"],["Johnnie Walker","4 cl","4,50"],["Veterano","4 cl","4,00"],
+    ["Williams Christ","2 cl","2,10"],["Wodka","2 cl","2,10"],["43 mit Milch","2 cl","4,00"]]
+};
+
+// Speisen ins HTML schreiben
+for (const [id, liste] of Object.entries(speisen)) {
+  document.getElementById(id).innerHTML = liste.map(([n, b, p]) => `
+    <div class="gericht">
+      <div class="eintrag"><span class="name">${n}</span><span class="punkte"></span><span class="preis">${p} €</span></div>
+      ${b ? `<div class="beschreibung">${b}</div>` : ""}
+    </div>`).join("");
+}
+
+// Getränke ins HTML schreiben
+for (const [id, liste] of Object.entries(getraenke)) {
+  document.getElementById(id).innerHTML = liste.map(([n, m, p]) => `
+    <div class="eintrag"><span class="name">${n}</span><span class="menge">${m}</span>
+      <span class="punkte"></span><span class="preis">${p} €</span></div>`).join("");
+}
+</script>
+</body>
+</html>

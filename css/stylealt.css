@@ -1,0 +1,506 @@
+/* =====================================================
+   Farben & Schriften – HIER zentral anpassen
+   (vom Schild abgelesen, ungefähre Werte)
+   ===================================================== */
+:root {
+  --gruen: #1d6b3a;
+  --gruen-hell: #2a8a4c;
+  --gruen-dunkel: #134a28;
+  --creme: #f7f2dc;
+  --gold: #e0b03a;
+  --rot: #c8102e;
+  --text: #2a2a2a;
+  --schrift-titel: Georgia, "Times New Roman", serif;
+  --schrift-text: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--schrift-text);
+  color: var(--text);
+  background: var(--creme);
+  line-height: 1.6;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--schrift-titel);
+  color: var(--gruen);
+  line-height: 1.2;
+}
+a {
+  color: var(--gruen);
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.zentriert {
+  text-align: center;
+}
+
+/* ===== Navigation ===== */
+.header {
+  background: var(--gruen-dunkel);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 3px solid var(--gold);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.25rem;
+  position: relative;
+}
+.logo img {
+  .logo img {
+    height: 75px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+.logo {
+  text-decoration: none;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--creme);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 3px;
+}
+.nav-links a:hover,
+.nav-links a.aktiv {
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--creme);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ===== Hero – sieht aus wie das Schild ===== */
+.hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.25rem;
+  background: linear-gradient(rgba(19, 74, 40, 0.55), rgba(19, 74, 40, 0.55)),
+    url("https://picsum.photos/1600/900?grayscale") center/cover;
+}
+.hero-schild {
+  background: var(--creme);
+  border: 6px solid var(--gruen);
+  outline: 3px solid var(--creme);
+  border-radius: 8px;
+  padding: 2.5rem 3.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.hero-logo {
+  width: min(200px, 70vw);
+  margin: 0 auto 2rem;
+}
+.hero h1 {
+  font-size: clamp(3.5rem, 11vw, 7rem);
+  font-style: italic;
+  font-weight: 900;
+  color: var(--gruen);
+  -webkit-text-stroke: 1px var(--gold);
+  text-shadow: 3px 3px 0 var(--gold);
+}
+.hero p {
+  font-family: var(--schrift-titel);
+  font-size: 1.5rem;
+  color: var(--gruen);
+  margin: 0.3rem 0 1.8rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  margin: 0.3rem 0.2rem;
+  background: var(--gruen);
+  color: var(--creme);
+  text-decoration: none;
+  border: 2px solid var(--gruen);
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--gruen-dunkel);
+}
+.btn-rand,
+.btn-gruen-rand {
+  background: transparent;
+  color: var(--gruen);
+}
+
+/* ===== Abschnitte ===== */
+.section {
+  padding: 4rem 0;
+}
+.section h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0.6rem auto 0;
+}
+.willkommen {
+  max-width: 760px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.willkommen p {
+  margin-bottom: 1rem;
+}
+
+.dunkel {
+  background: var(--gruen-dunkel);
+  color: var(--creme);
+}
+.dunkel h2,
+.dunkel h3 {
+  color: var(--creme);
+}
+.vorteile {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.vorteil {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid rgba(224, 176, 58, 0.5);
+  border-radius: 6px;
+}
+.vorteil .icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.vorteil h3 {
+  color: var(--gold) !important;
+  margin-bottom: 0.3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.karte-box {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--gruen);
+}
+.karte-box > div {
+  padding: 1.25rem;
+}
+.karte-box h3 {
+  margin-bottom: 0.4rem;
+}
+.karte-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Mühlen-Band */
+.kölsch-band {
+  background: #fff;
+  border-top: 3px solid var(--gruen);
+  border-bottom: 3px solid var(--gruen);
+}
+.kölsch-inhalt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.kölsch-inhalt h2 {
+  text-align: left;
+  margin-bottom: 0.8rem;
+}
+.kölsch-inhalt h2::after {
+  margin-left: 0;
+}
+.muehlen-logo {
+  width: 160px;
+}
+
+/* Öffnungszeiten */
+.zeiten {
+  margin: 0 auto 1.5rem;
+  border-collapse: collapse;
+  font-size: 1.05rem;
+}
+.zeiten td {
+  padding: 0.45rem 1rem;
+  border-bottom: 1px dotted #aaa;
+  text-align: left;
+}
+.zeiten td:last-child {
+  font-weight: 600;
+  text-align: right;
+}
+.zeiten .kueche td {
+  color: var(--gruen);
+  font-style: italic;
+  border-bottom: none;
+}
+
+/* Kontakt */
+.info-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.info-box h3 {
+  margin: 1.2rem 0 0.5rem;
+}
+.info-box h3:first-child {
+  margin-top: 0;
+}
+.info-box p {
+  margin-bottom: 0.8rem;
+}
+.info-box .zeiten {
+  margin-left: 0;
+}
+
+/* ===== Speise- & Getränkekarte ===== */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.tab {
+  padding: 0.6rem 1.8rem;
+  border: 2px solid var(--gruen);
+  background: none;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--gruen);
+  font-weight: 600;
+}
+.tab.aktiv,
+.tab:hover {
+  background: var(--gruen);
+  color: var(--creme);
+}
+.tab-inhalt {
+  display: none;
+}
+.tab-inhalt.aktiv {
+  display: block;
+}
+
+.kategorie {
+  margin-bottom: 2.5rem;
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.kategorie h3 {
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+.mit-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mit-logo img {
+  height: 48px;
+}
+.hinweis {
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+.eintrag {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+}
+.eintrag .name {
+  font-weight: 600;
+}
+.eintrag .menge {
+  color: #777;
+  font-size: 0.9rem;
+}
+.eintrag .punkte {
+  flex: 1;
+  border-bottom: 1px dotted #aaa;
+}
+.eintrag .preis {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--gruen);
+}
+.spalten {
+  columns: 2 320px;
+  column-gap: 3rem;
+}
+.spalten .eintrag {
+  break-inside: avoid;
+}
+.gericht {
+  padding: 0.45rem 0;
+  break-inside: avoid;
+}
+.gericht .eintrag {
+  padding: 0;
+}
+.gericht .beschreibung {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.1rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--gruen-dunkel);
+  color: var(--creme);
+  padding: 3rem 0 1.5rem;
+  border-top: 3px solid var(--gold);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.footer-titel {
+  font-family: var(--schrift-titel);
+  color: var(--gold);
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+.footer a {
+  color: var(--creme);
+}
+.footer a:hover {
+  color: var(--gold);
+}
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.footer-unten {
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(247, 242, 220, 0.2);
+  padding-top: 1.2rem;
+}
+
+/* ===== Textseiten ===== */
+.text-seite {
+  min-height: 50vh;
+}
+.text-seite h1 {
+  margin-bottom: 1.5rem;
+}
+.text-seite p {
+  margin-bottom: 1rem;
+}
+
+/* ===== Handy ===== */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+  .logo img {
+    height: 48px;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--gruen-dunkel);
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  .nav-links.offen {
+    display: flex;
+  }
+  .hero-schild {
+    padding: 2rem 1.5rem;
+  }
+  .kategorie {
+    padding: 1.2rem;
+  }
+  .kölsch-inhalt {
+    text-align: center;
+  }
+  .kölsch-inhalt h2 {
+    text-align: center;
+  }
+  .kölsch-inhalt h2::after {
+    margin: 0.6rem auto 0;
+  }
+}
