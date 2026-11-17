@@ -121,9 +121,7 @@ img {
   justify-content: center;
   text-align: center;
   padding: 3rem 1.25rem;
-  background: linear-gradient(rgba(19, 74, 40, 0.55), rgba(19, 74, 40, 0.55)),
-    url("[picsum.photos](https://picsum.photos/1600/900?grayscale)")
-      center/cover;
+  background: linear-gradient(rgba(19, 74, 40, 0.55), rgba(19, 74, 40, 0.55));
 }
 .hero-schild {
   background: var(--creme);
@@ -534,5 +532,24 @@ img {
   }
   .kölsch-inhalt h2::after {
     margin: 0.6rem auto 0;
+  }
+}
+
+/* ===== Handy-Fix: lange Wörter in Überschriften ===== */
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.text-seite h1 {
+  font-size: clamp(1.4rem, 6.5vw, 2.6rem);
+}
+.text-seite h2 {
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+}
+@media (max-width: 768px) {
+  .section h2 {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
   }
 }
